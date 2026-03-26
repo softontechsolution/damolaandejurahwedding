@@ -2670,6 +2670,39 @@ fieldset:disabled a.btn {
   border-color: #E47A2E;
 }
 
+.btn-outline-primary-one {
+  color: #660033;
+  border-color: #660033;
+}
+
+.btn-outline-primary-one:hover {
+  color: #fff;
+  background-color: #660033;
+  border-color: #660033;
+}
+
+.btn-outline-primary-two {
+  color: #000;
+  border-color: #FDFBD7;
+}
+
+.btn-outline-primary-two:hover {
+  color: #000;
+  background-color: #FDFBD7;
+  border-color: #FDFBD7;
+}
+
+.btn-outline-primary-three {
+  color: #000;
+  border-color: #EFBF04;
+}
+
+.btn-outline-primary-three:hover {
+  color: #000;
+  background-color: #EFBF04;
+  border-color: #EFBF04;
+}
+
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(228, 122, 46, 0.5);
 }
