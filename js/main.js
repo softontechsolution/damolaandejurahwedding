@@ -320,6 +320,32 @@ btn.addEventListener("click", () => {
 });
 
 btn.classList.toggle("playing");
+
+document.querySelectorAll(".copy-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const text = btn.getAttribute("data-copy");
+
+    navigator.clipboard.writeText(text).then(() => {
+      
+      // Add animation class
+      btn.classList.add("copied");
+      btn.innerHTML = '<i class="fa fa-check"></i>';
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        btn.classList.remove("copied");
+        btn.innerHTML = '<i class="fa fa-copy"></i>';
+      }, 2000);
+
+    });
+    const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+        toast.classList.remove("show");
+        }, 2000);
+  });
+});
     
 })(jQuery);
 
