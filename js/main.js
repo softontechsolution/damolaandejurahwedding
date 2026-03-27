@@ -302,6 +302,24 @@ document.querySelectorAll("input, textarea").forEach(el => {
     gsap.to(el, { scale: 1, duration: 0.2 });
   });
 });
+
+//
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("music-btn");
+
+btn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "🔊";
+    btn.style.background = "#28a745"; // active state
+  } else {
+    music.pause();
+    btn.innerText = "🎵";
+    btn.style.background = "#d4af37"; // idle
+  }
+});
+
+btn.classList.toggle("playing");
     
 })(jQuery);
 
