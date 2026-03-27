@@ -1,5 +1,6 @@
 (function ($) {
     "use strict";
+    gsap.registerPlugin(ScrollTrigger);
 
     // Navbar on scrolling
     $(window).scroll(function () {
@@ -112,6 +113,195 @@
             }
         }
     });
+
+    //GSAP ANIMATION
+    gsap.to(".loader-text", {
+  opacity: 1,
+  duration: 1.5,
+  ease: "power2.out"
+});
+
+gsap.to("#preloader", {
+  opacity: 0,
+  delay: 2.5,
+  duration: 1,
+  onComplete: () => {
+    document.getElementById("preloader").style.display = "none";
+  }
+});
+
+//
+gsap.from(".carousel-caption h1", {
+  y: 100,
+  opacity: 0,
+  duration: 1.5,
+  ease: "power4.out"
+});
+
+gsap.from(".carousel-caption h3", {
+  y: 50,
+  opacity: 0,
+  duration: 1.2,
+  delay: 0.5,
+  stagger: 0.2
+});
+
+//
+gsap.to(".carousel-item img", {
+  scale: 1.1,
+  scrollTrigger: {
+    trigger: "#home",
+    scrub: true
+  }
+});
+
+//
+gsap.utils.toArray("#about .row").forEach((section, i) => {
+  const text = section.querySelector(".bg-secondary");
+  const img = section.querySelector("img");
+
+  gsap.from(text, {
+    x: i % 2 === 0 ? -100 : 100,
+    opacity: 0,
+    duration: 1.2,
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%",
+    }
+  });
+
+  gsap.from(img, {
+    x: i % 2 === 0 ? 100 : -100,
+    opacity: 0,
+    duration: 1.2,
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%",
+    }
+  });
+});
+
+//
+gsap.utils.toArray(".timeline .row").forEach((el) => {
+  gsap.from(el, {
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+    }
+  });
+});
+
+//
+gsap.from(".gallery-item", {
+  scale: 0.8,
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: "#gallery",
+    start: "top 80%"
+  }
+});
+
+//
+gsap.from("#rsvp form", {
+  y: 100,
+  opacity: 0,
+  duration: 1.2,
+  scrollTrigger: {
+    trigger: "#rsvp",
+    start: "top 80%"
+  }
+});
+
+//
+document.querySelectorAll('a.nav-link').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute('href'));
+
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: target.offsetTop - 70,
+      ease: "power3.inOut"
+    });
+  });
+});
+
+//
+gsap.to(".navbar", {
+  backgroundColor: "#000",
+  scrollTrigger: {
+    trigger: "body",
+    start: "top -50",
+    end: "top -200",
+    scrub: true
+  }
+});
+
+//
+gsap.to(".carousel-caption", {
+  y: -50,
+  scrollTrigger: {
+    trigger: "#home",
+    scrub: true
+  }
+});
+
+//
+gsap.utils.toArray("#about .row").forEach((section) => {
+  gsap.from(section, {
+    opacity: 0,
+    y: 100,
+    duration: 1.2,
+    scrollTrigger: {
+      trigger: section,
+      start: "top 75%",
+    }
+  });
+});
+
+//
+document.querySelectorAll(".reveal-text").forEach(el => {
+  const spans = el.innerText.split("").map(char => `<span>${char}</span>`).join("");
+  el.innerHTML = spans;
+
+  gsap.to(el.querySelectorAll("span"), {
+    y: 0,
+    stagger: 0.02,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: el,
+      start: "top 90%"
+    }
+  });
+});
+
+//
+gsap.utils.toArray(".gallery-item").forEach((item, i) => {
+  gsap.to(item, {
+    y: i % 2 === 0 ? -50 : 50,
+    scrollTrigger: {
+      trigger: item,
+      scrub: true
+    }
+  });
+});
+
+//
+document.querySelectorAll("input, textarea").forEach(el => {
+  el.addEventListener("focus", () => {
+    gsap.to(el, { scale: 1.03, duration: 0.2 });
+  });
+
+  el.addEventListener("blur", () => {
+    gsap.to(el, { scale: 1, duration: 0.2 });
+  });
+});
     
 })(jQuery);
 
