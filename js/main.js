@@ -402,6 +402,19 @@ gsap.from(".story-text", {
   }
 });
 
+//
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".navbar");
+
+  if (window.scrollY > 50) {
+    navbar.style.padding = "10px 0";
+    navbar.style.background = "rgba(128, 0, 32, 0.98)";
+  } else {
+    navbar.style.padding = "20px 0";
+    navbar.style.background = "rgba(128, 0, 32, 0.95)";
+  }
+});
+
     
 })(jQuery);
 
