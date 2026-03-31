@@ -1,6 +1,7 @@
 (function ($) {
     "use strict";
     gsap.registerPlugin(ScrollTrigger);
+    emailjs.init(Y4eIMd5firTIn-mib);
 
     // Navbar on scrolling
     $(window).scroll(function () {
@@ -413,6 +414,23 @@ window.addEventListener("scroll", function () {
     navbar.style.padding = "20px 0";
     navbar.style.background = "rgba(128, 0, 32, 0.95)";
   }
+});
+
+//
+document.getElementById("rsvp-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    service_1jce2wk,
+    template_3e5gyve,
+    this
+  ).then(() => {
+    document.querySelector("#success-message").classList.add("show");
+    this.reset();
+  }, (error) => {
+    alert("Failed to send. Try again.");
+    console.log(error);
+  });
 });
 
     

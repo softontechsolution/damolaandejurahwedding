@@ -41,16 +41,16 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav ml-auto py-0">
                 <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#story" class="nav-item nav-link">About</a>
                 <a href="#about" class="nav-item nav-link">Story</a>
+                <a href="#story" class="nav-item nav-link">Details</a>
                 <a href="#gallery" class="nav-item nav-link">Gallery</a>
             </div>
             <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
                 <h1 class="font-secondary text-white mb-n2">Damola <span class="text-primary">&</span> Ejurah</h1>
             </a>
             <div class="navbar-nav mr-auto py-0">
-                <a href="#family" class="nav-item nav-link">Colors</a>
                 <a href="#event" class="nav-item nav-link">Gift</a>
+                <a href="#family" class="nav-item nav-link">Colors</a>
                 <a href="#rsvp" class="nav-item nav-link">RSVP</a>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
@@ -406,23 +406,22 @@
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
-                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Your Name"/>
+                                    <input type="text" name="guestName" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Your Name" required/>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Your Email"/>
+                                    <input type="email" name="guestEmail" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Your Email"/>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12">
-                                    <select class="form-control bg-secondary border-0" style="height: 52px;">
-                                        <option>I'm Attending</option>
-                                        <option>All Events</option>
-                                        <option>Wedding Party</option>
+                                    <select class="form-control bg-secondary border-0" name="guestResponse" required style="height: 52px;">
+                                        <option value="">I'm Attending</option>
+                                        <option value="1">Not Attending</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="5" placeholder="Message" required="required"></textarea>
+                                <textarea class="form-control bg-secondary border-0 py-2 px-3" name="guestMessage" rows="5" placeholder="Message" required></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Submit</button>
@@ -477,6 +476,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
