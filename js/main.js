@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
     gsap.registerPlugin(ScrollTrigger);
-    emailjs.init(Y4eIMd5firTIn-mib);
+    emailjs.init("Y4eIMd5firTIn-mib");
 
     // Navbar on scrolling
     $(window).scroll(function () {
@@ -421,11 +421,19 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   e.preventDefault();
 
   emailjs.sendForm(
-    service_1jce2wk,
-    template_3e5gyve,
+    "service_1jce2wk",
+    "template_3e5gyve",
     this
   ).then(() => {
-    document.querySelector("#success-message").classList.add("show");
+    const successMsg = document.getElementById("success-message");
+
+    successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Optional: hide after 5 seconds
+    setTimeout(() => {
+      successMsg.classList.remove("show");
+    }, 5000);
+
     this.reset();
   }, (error) => {
     alert("Failed to send. Try again.");
