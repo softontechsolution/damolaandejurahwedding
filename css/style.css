@@ -223,6 +223,38 @@ hr {
   opacity: 1;
 }
 
+.story-text {
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.story-text:first-letter {
+  font-size: 40px;
+  font-weight: bold;
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  color: #660033; /* gold */
+}
+
+.border-burgundy {
+  border: 2px solid #800020 !important;
+  border-image: linear-gradient(45deg, #800020, #a52a2a, #800020) 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(128, 0, 32, 0.2);
+}
+
+.border-burgundy:hover {
+  box-shadow: 0 0 20px rgba(128, 0, 32, 0.4);
+  transition: 0.3s ease;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -6349,6 +6381,12 @@ button.bg-light:focus {
   background-color: #121F38 !important;
 }
 
+.bg-burgundy {
+  background: rgba(128, 0, 32, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
 button.bg-dark:focus {
@@ -9695,7 +9733,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .navbar-dark .navbar-nav .nav-link {
   padding: 25px 10px;
-  color: #FFFFFF;
+  color: #f8f9fa;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
@@ -9704,7 +9742,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #E47A2E;
+  color: #d4af37; /* gold hover */
 }
 
 @media (max-width: 991.98px) {

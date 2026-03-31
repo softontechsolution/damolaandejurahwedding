@@ -307,6 +307,36 @@ document.querySelectorAll("input, textarea").forEach(el => {
 const music = document.getElementById("bg-music");
 const btn = document.getElementById("music-btn");
 
+// Try autoplay on page load (may fail silently)
+window.addEventListener("load", () => {
+  music.play().catch(() => {
+    console.log("Autoplay blocked");
+  });
+});
+
+// Force play on first user interaction
+const startMusic = () => {
+  music.play();
+  btn.innerText = "🔊";
+  btn.classList.add("playing");
+
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("scroll", startMusic);
+};
+
+document.addEventListener("click", startMusic);
+document.addEventListener("scroll", startMusic);
+
+music.volume = 0;
+
+const fadeIn = setInterval(() => {
+  if (music.volume < 1) {
+    music.volume += 0.05;
+  } else {
+    clearInterval(fadeIn);
+  }
+}, 200);
+
 btn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
@@ -319,8 +349,21 @@ btn.addEventListener("click", () => {
   }
 });
 
+gsap.to("#preloader", {
+  opacity: 0,
+  delay: 2.5,
+  duration: 1,
+  onComplete: () => {
+    document.getElementById("preloader").style.display = "none";
+    
+    // Start music here
+    music.play().catch(() => {});
+  }
+});
+
 btn.classList.toggle("playing");
 
+//
 document.querySelectorAll(".copy-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const text = btn.getAttribute("data-copy");
@@ -346,6 +389,19 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
         }, 2000);
   });
 });
+
+//
+gsap.from(".story-text", {
+  opacity: 0,
+  y: 30,
+  duration: 1,
+  stagger: 0.2,
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 80%"
+  }
+});
+
     
 })(jQuery);
 
