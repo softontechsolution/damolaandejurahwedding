@@ -279,6 +279,55 @@ hr {
   margin-right: 5px;
 }
 
+.success-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(128, 0, 32, 0.95);
+  color: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.6s ease;
+  z-index: 9999;
+}
+
+.success-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  animation: glowPulse 2s ease;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 rgba(128,0,32,0.4); }
+  50% { box-shadow: 0 0 25px rgba(128,0,32,0.6); }
+  100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.toast-content .icon {
+  font-size: 24px;
+}
+
+.toast-content h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.toast-content p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;

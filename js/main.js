@@ -331,7 +331,7 @@ document.addEventListener("scroll", startMusic);
 music.volume = 0;
 
 const fadeIn = setInterval(() => {
-  if (music.volume < 1) {
+  if (music.volume <= 1) {
     music.volume += 0.05;
   } else {
     clearInterval(fadeIn);
@@ -425,13 +425,18 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
     "template_3e5gyve",
     this
   ).then(() => {
-    const successMsg = document.getElementById("success-message");
+    const toast = document.getElementById("success-toast");
 
-    successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+    toast.classList.add("show");
 
-    // Optional: hide after 5 seconds
+    // Confetti 🎉
+    launchConfetti();
+
+    // Optional sound
+    playSuccessSound();
+
     setTimeout(() => {
-      successMsg.classList.remove("show");
+      toast.classList.remove("show");
     }, 5000);
 
     this.reset();
@@ -440,6 +445,14 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
     console.log(error);
   });
 });
+
+function launchConfetti() {
+  confetti({
+    particleCount: 120,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
 
     
 })(jQuery);
