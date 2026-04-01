@@ -2925,35 +2925,38 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary-one {
-  color: #660033;
+  color: #ffffff;
   border-color: #660033;
+  background-color: #660033;
 }
 
 .btn-outline-primary-one:hover {
-  color: #fff;
-  background-color: #660033;
+  color: #660033;
+  background-color: #ffffff;
   border-color: #660033;
 }
 
 .btn-outline-primary-two {
-  color: #000;
+  color: #313131;
   border-color: #FDFBD7;
+  background-color: #FDFBD7;
 }
 
 .btn-outline-primary-two:hover {
-  color: #000;
-  background-color: #FDFBD7;
+  color: #FDFBD7;
+  background-color: #ffffff;
   border-color: #FDFBD7;
 }
 
 .btn-outline-primary-three {
-  color: #000;
+  color: #313131;
   border-color: #EFBF04;
+  background-color: #EFBF04;
 }
 
 .btn-outline-primary-three:hover {
-  color: #000;
-  background-color: #EFBF04;
+  color: #EFBF04;
+  background-color: #ffffff;
   border-color: #EFBF04;
 }
 
