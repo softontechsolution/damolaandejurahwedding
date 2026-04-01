@@ -124,7 +124,7 @@ hr {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background: #d4af37; /* gold luxury feel */
+  background: #660033; /* gold luxury feel */
   color: #fff;
   border: none;
   font-size: 22px;
@@ -326,6 +326,40 @@ hr {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.countdown div {
+  background: rgba(102, 0, 51, 0.85);
+  color: #fff;
+  padding: 15px 18px;
+  border-radius: 10px;
+  min-width: 70px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.countdown div:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.countdown span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.countdown small {
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -6454,11 +6488,11 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #121F38 !important;
+  background-color: #660033 !important;
 }
 
 .bg-burgundy {
-  background: rgba(128, 0, 32, 0.95);
+  background-color: #660033 !important;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }

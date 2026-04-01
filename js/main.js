@@ -342,11 +342,11 @@ btn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
     btn.innerText = "🔊";
-    btn.style.background = "#28a745"; // active state
+    btn.style.background = "#efbf04"; // active state
   } else {
     music.pause();
     btn.innerText = "🎵";
-    btn.style.background = "#d4af37"; // idle
+    btn.style.background = "#660033"; // idle
   }
 });
 
@@ -453,6 +453,51 @@ function launchConfetti() {
     origin: { y: 0.6 }
   });
 }
+
+//
+const weddingDate = new Date("Dec 20, 2026 12:00:00").getTime(); // 👉 CHANGE THIS
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "🎉 We're Married!";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  animateValue("days", days);
+  animateValue("hours", hours);
+  animateValue("minutes", minutes);
+  animateValue("seconds", seconds);
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+//
+function animateValue(id, value) {
+  const el = document.getElementById(id);
+  el.style.transform = "scale(1.2)";
+  setTimeout(() => {
+    el.innerText = value;
+    el.style.transform = "scale(1)";
+  }, 150);
+}
+
+//
+gsap.from("#countdown div", {
+  opacity: 0,
+  y: 30,
+  duration: 1,
+  stagger: 0.2,
+  delay: 1
+});
 
     
 })(jQuery);
