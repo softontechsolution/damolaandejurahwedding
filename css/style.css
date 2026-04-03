@@ -101,6 +101,7 @@ hr {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }Í
 
+
 .hero-overlay {
   position: absolute;
   width: 100%;
@@ -174,6 +175,10 @@ hr {
   font-size: 18px;
   color: #d4af37;
   transition: all 0.3s ease;
+}
+
+.copy-btn:active {
+  transform: scale(0.85);
 }
 
 .copy-btn:hover {
@@ -360,6 +365,85 @@ hr {
 .countdown small {
   font-size: 12px;
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .story-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .countdown {
+    gap: 10px;
+  }
+
+  .countdown div {
+    padding: 10px;
+    min-width: 60px;
+  }
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: flex-end;     /* push content down */
+  height: 100vh;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out, transform 6s ease-in-out;
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.hero-bg.active {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(0);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.2)
+  );
+  z-index: 1;
+}
+
+/* Ensure your content stays above */
+.hero .row {
+  z-index: 2;
+  animation: fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .row {
+    margin-bottom: 20vh;
+  }
+}
+
+.far {
+  color: #EFBF04;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2653,34 +2737,34 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #E47A2E;
-  border-color: #E47A2E;
+  background-color: #EFBF04;
+  border-color: #EFBF04;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #d1671b;
-  border-color: #c5611a;
+  background-color: #EFBF04;
+  border-color: #EFBF04;
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #d1671b;
-  border-color: #c5611a;
+  background-color: #d3aa07;
+  border-color: #d3aa07;
   box-shadow: 0 0 0 0.2rem rgba(232, 142, 77, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #E47A2E;
-  border-color: #E47A2E;
+  background-color: #EFBF04;
+  border-color: #EFBF04;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #c5611a;
-  border-color: #ba5c18;
+  background-color: #d2aa09;
+  border-color: #d2aa09;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -9594,7 +9678,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #E47A2E !important;
+  color: #EFBF04 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9650,7 +9734,7 @@ a.text-light:hover, a.text-light:focus {
 }
 
 .text-dark {
-  color: #121F38 !important;
+  color: #EFBF04 !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
@@ -10000,7 +10084,7 @@ a.text-dark:hover, a.text-dark:focus {
     bottom: 0;
     left: 50%;
     margin-left: -1px;
-    background: #E47A2E;
+    background: #EFBF04;
   }
   .timeline .row::before {
     content: "";
@@ -10010,7 +10094,7 @@ a.text-dark:hover, a.text-dark:focus {
     top: calc(50% - 15px);
     left: calc(50% - 15px);
     background: #FFFFFF;
-    border: 2px solid #E47A2E;
+    border: 2px solid #EFBF04;
     transform: rotate(45deg);
     z-index: 1;
   }
@@ -10021,7 +10105,7 @@ a.text-dark:hover, a.text-dark:focus {
     position: absolute;
     top: calc(50% - 10px);
     left: calc(50% - 8px);
-    color: #E47A2E;
+    color: #EFBF04;
     z-index: 2;
   }
 }
@@ -10092,3 +10176,4 @@ a.text-dark:hover, a.text-dark:focus {
     border-right: none !important;
   }
 }
+

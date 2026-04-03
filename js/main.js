@@ -293,7 +293,7 @@ gsap.utils.toArray(".gallery-item").forEach((item, i) => {
   });
 });
 
-//
+//TEXT AREA INPUT
 document.querySelectorAll("input, textarea").forEach(el => {
   el.addEventListener("focus", () => {
     gsap.to(el, { scale: 1.03, duration: 0.2 });
@@ -304,7 +304,7 @@ document.querySelectorAll("input, textarea").forEach(el => {
   });
 });
 
-//
+//MUSIC BUTTON
 const music = document.getElementById("bg-music");
 const btn = document.getElementById("music-btn");
 
@@ -364,7 +364,7 @@ gsap.to("#preloader", {
 
 btn.classList.toggle("playing");
 
-//
+//COPY BUTTON
 document.querySelectorAll(".copy-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const text = btn.getAttribute("data-copy");
@@ -374,6 +374,7 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
       // Add animation class
       btn.classList.add("copied");
       btn.innerHTML = '<i class="fa fa-check"></i>';
+      navigator.vibrate(50);
 
       // Reset after 2 seconds
       setTimeout(() => {
@@ -391,7 +392,7 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
   });
 });
 
-//
+//STORY SECTION TEXT
 gsap.from(".story-text", {
   opacity: 0,
   y: 30,
@@ -403,7 +404,7 @@ gsap.from(".story-text", {
   }
 });
 
-//
+//NAVBAR
 window.addEventListener("scroll", function () {
   const navbar = document.querySelector(".navbar");
 
@@ -416,9 +417,11 @@ window.addEventListener("scroll", function () {
   }
 });
 
-//
+//RSVP FORM
 document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   e.preventDefault();
+  button.innerText = "Sending...";
+  button.disabled = true;
 
   emailjs.sendForm(
     "service_1jce2wk",
@@ -455,7 +458,7 @@ function launchConfetti() {
 }
 
 //
-const weddingDate = new Date("Dec 20, 2026 12:00:00").getTime(); // 👉 CHANGE THIS
+const weddingDate = new Date("May 30, 2026 12:00:00").getTime(); // 👉 CHANGE THIS
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -480,7 +483,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-//
+//COUNTDOWN ANIMATION
 function animateValue(id, value) {
   const el = document.getElementById(id);
   el.style.transform = "scale(1.2)";
@@ -498,6 +501,42 @@ gsap.from("#countdown div", {
   stagger: 0.2,
   delay: 1
 });
+
+// HERO SECTION
+const images = [
+  "img/backgroud1.png",
+  "img/backgroud4.png",
+  "img/backgroud3.png"
+];
+
+const bg1 = document.querySelector(".bg1");
+const bg2 = document.querySelector(".bg2");
+
+let index = 0;
+let showFirst = true;
+
+// initial
+bg1.style.backgroundImage = `url(${images[0]})`;
+bg1.classList.add("active");
+
+function changeBg() {
+  index = (index + 1) % images.length;
+
+  if (showFirst) {
+    bg2.style.backgroundImage = `url(${images[index]})`;
+    bg2.classList.add("active");
+    bg1.classList.remove("active");
+  } else {
+    bg1.style.backgroundImage = `url(${images[index]})`;
+    bg1.classList.add("active");
+    bg2.classList.remove("active");
+  }
+
+  showFirst = !showFirst;
+}
+
+setInterval(changeBg, 8000);
+
 
     
 })(jQuery);
