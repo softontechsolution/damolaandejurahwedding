@@ -465,8 +465,9 @@ hr {
 
   #about img {
     position: relative !important;
-    height: 220px !important;
+    height: 350px !important; 
     object-fit: cover;
+    object-position: top center; /* keeps faces visible */
   }
 
   #about .row {
@@ -479,6 +480,16 @@ hr {
     backdrop-filter: blur(6px);
     border-radius: 12px;
   }
+}
+
+.img-fit {
+  object-fit: contain;
+  background: #000;
+}
+
+.img-focus-top {
+  object-fit: cover;
+  object-position: top center;
 }
 
 .far {
@@ -551,6 +562,14 @@ box-shadow:
 
 .about-text {
   color: #fff;
+}
+
+/* OVERLAY */
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(102, 100, 100); /* dark overlay */
+  z-index: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10250,7 +10269,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .bg-gallery {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/backgroud7.png), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../img/backgroud7.png), no-repeat center center;
   background-size: cover;
 }
 
