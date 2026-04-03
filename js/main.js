@@ -538,6 +538,33 @@ function changeBg() {
 setInterval(changeBg, 8000);
 
 
+//STORY SCENE
+const aimages = [
+  "img/backgroud2.png",
+  "img/backgroud5.png",
+  "img/backgroud6.png"
+];
+
+let current = 0;
+
+const abg1 = document.querySelector(".about-bg.bg1");
+const abg2 = document.querySelector(".about-bg.bg2");
+
+bg1.style.backgroundImage = `url(${aimages[0]})`;
+
+setInterval(() => {
+  current = (current + 1) % aimages.length;
+
+  abg2.style.backgroundImage = `url(${aimages[current]})`;
+  abg2.style.opacity = "1";
+
+  setTimeout(() => {
+    abg1.style.backgroundImage = bg2.style.backgroundImage;
+    abg2.style.opacity = "0";
+  }, 2000);
+
+}, 5000);
+
     
 })(jQuery);
 

@@ -446,6 +446,74 @@ hr {
   color: #EFBF04;
 }
 
+.about-card {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  overflow: hidden;
+box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 0 20px rgba(128, 0, 32, 0.05); /* burgundy glow */
+  transition: all 0.4s ease;
+}
+
+/* Hover effect (premium feel) */
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.about-card .col-md-6 {
+  position: relative;
+}
+
+.about-card img {
+  border-radius: 0; /* keep clean edge */
+}
+
+#about .container {
+  max-width: 1100px;
+}
+
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+/* BACKGROUND LAYERS */
+.about-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Two layers for crossfade */
+.about-bg.bg1 {
+  opacity: 1;
+}
+
+/* OVERLAY */
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75); /* dark overlay */
+  z-index: 1;
+}
+
+/* KEEP CONTENT ABOVE */
+#about .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-text {
+  color: #fff;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
