@@ -440,6 +440,45 @@ hr {
   .hero .row {
     margin-bottom: 20vh;
   }
+
+  #about .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #about .p-5 {
+    padding: 20px !important;
+  }
+
+  .about-scene {
+    margin-bottom: 30px;
+  }
+
+  #about .row {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  #about .col-md-6[style] {
+    min-height: 220px !important;
+  }
+
+  #about img {
+    position: relative !important;
+    height: 220px !important;
+    object-fit: cover;
+  }
+
+  #about .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-scene {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+  }
 }
 
 .far {
